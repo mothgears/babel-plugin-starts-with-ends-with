@@ -1,0 +1,32 @@
+{
+  "name": "babel-plugin-starts-with-ends-with",
+  "version": "1.0.0",
+  "description": "Replaces `startsWith` and `endsWith` with es5 compatible code.",
+  "author": "Artem Varshavin",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mothgears/babel-plugin-starts-with-ends-with.git"
+  },
+  "main": "lib/index.js",
+  "devDependencies": {
+    "@babel/cli": "^7.7.4",
+    "@babel/core": "^7.7.4",
+    "@babel/preset-env": "^7.7.4",
+    "@babel/register": "^7.7.4",
+    "chai": "^4.2.0",
+    "mocha": "^6.2.2"
+  },
+  "scripts": {
+    "build": "babel -D src -d lib",
+    "test": "mocha",
+    "prepublish": "npm run build"
+  },
+  "keywords": [
+    "babel",
+    "babel-plugin",
+    "startsWith",
+    "endsWith",
+    "polyfill"
+  ]
+}

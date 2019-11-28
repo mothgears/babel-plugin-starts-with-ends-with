@@ -1,0 +1,13 @@
+# IDE
+.idea
+
+# Logs
+logs
+*.log
+
+# Dependency directory
+node_modules
+lib
+
+# Yarn
+yarn.lock
