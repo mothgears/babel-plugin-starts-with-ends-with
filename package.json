@@ -1,6 +1,6 @@
 {
   "name": "babel-plugin-starts-with-ends-with",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Replaces `startsWith` and `endsWith` with es5 compatible code.",
   "author": "Artem Varshavin",
   "license": "MIT",
