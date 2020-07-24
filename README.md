@@ -14,8 +14,8 @@
 **Out**
 
 ```javascript
-'foobar'.indexOf('foo') === 0;
-'foobar'.slice(-'bar'.length) === 'bar';
+'foobar'.indexOf('foo')===0;
+'foobar'.slice(-'bar'.length)==='bar';
 ```
 
 ## Installation
