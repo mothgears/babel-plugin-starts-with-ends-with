@@ -1,14 +1,15 @@
 const babel = require('@babel/core');
-import {expect} from 'chai';
-import plugin from '../src';
+const plugin = process.env.NODE_ENV === 'development' ? require('../src/index.mjs').default : require('../lib/index.js');
 
-describe('babel-plugin-transform-array-includes', function() {
-	it("'foobar'.startsWith('foo')", function() {
-		expect(babel.transform("'foobar'.startsWith('foo');", {plugins: [plugin], compact: true}).code)
-			.to.equal("'foobar'.indexOf('foo')===0;");
+describe('babel-plugin-transform-array-includes', ()=>{
+	it("'foobar'.startsWith('foo')", ()=>{
+		expect(
+			babel.transform("'foobar'.startsWith('foo');", {plugins: [plugin], compact: true}).code
+		).toEqual("'foobar'.indexOf('foo')===0;");
 	});
-	it("'foobar'.endsWith('bar')", function() {
-		expect(babel.transform("'foobar'.endsWith('bar');", {plugins: [plugin], compact: true}).code)
-			.to.equal("'foobar'.slice(-'bar'.length)==='bar';");
+	it("'foobar'.endsWith('bar')", ()=>{
+		expect(
+			babel.transform("'foobar'.endsWith('bar');", {plugins: [plugin], compact: true}).code
+		).toEqual("'foobar'.slice(-'bar'.length)==='bar';");
 	});
 });

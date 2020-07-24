@@ -1,6 +1,6 @@
 {
   "name": "babel-plugin-starts-with-ends-with",
-  "version": "1.0.3",
+  "version": "1.1.0",
   "description": "Replaces `startsWith` and `endsWith` with es5 compatible code.",
   "author": "Artem Varshavin",
   "license": "MIT",
@@ -13,14 +13,27 @@
     "@babel/cli": "^7.10.5",
     "@babel/core": "^7.10.5",
     "@babel/preset-env": "^7.10.4",
-    "@babel/register": "^7.10.5",
-    "chai": "^4.2.0",
-    "mocha": "^8.0.1"
+    "jest": "^26.1.0",
+    "jest-esm-transformer": "^1.0.0",
+    "cross-env": "^7.0.2"
+  },
+  "jest": {
+    "moduleFileExtensions": [
+      "js",
+      "mjs",
+      "json"
+    ],
+    "testMatch": [
+      "**/test/**/*.(js|mjs)"
+    ],
+    "transform": {
+      ".mjs": "jest-esm-transformer"
+    }
   },
   "scripts": {
-    "build": "babel -D src -d lib",
-    "test": "mocha",
-    "prepublish": "npm run build"
+    "test": "cross-env NODE_ENV=development node --experimental-modules --experimental-json-modules node_modules/jest/bin/jest.js",
+    "build": "cross-env NODE_ENV=production babel -D src -d lib",
+    "build-test": "cross-env NODE_ENV=production jest"
   },
   "keywords": [
     "babel",
